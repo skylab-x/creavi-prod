@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="creavi_products.list_machines">
+      <field name="name">creavi_machines list</field>
+      <field name="model">creavi_machine</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="cadence"/>
+          <field name="hour_cost"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="creavi_products.action_window_machines">
+      <field name="name">creavi_machines window</field>
+      <field name="res_model">creavi_machine</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <!--<record model="ir.actions.server" id="creavi_products.action_server_machines">
+      <field name="name">creavi_machines server</field>
+      <field name="model_id" ref="model_creavi_machines"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>-->
+
+
+    <!-- Top menu item -->
+    <menuitem id="Machine" name="machines" action="creavi_products.list_machines"/>
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="creavi_products.menu_1" parent="creavi_products.menu_root"/>
+    <menuitem name="Menu 2" id="creavi_products.menu_2" parent="creavi_products.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="creavi_products.menu_1_list" parent="creavi_products.menu_1"
+              action="creavi_products.action_window"/>
+    <menuitem name="Server to list" id="creavi_products" parent="creavi_products.menu_2"
+              action="creavi_products.action_server"/>
+-->
+  </data>
+</odoo>

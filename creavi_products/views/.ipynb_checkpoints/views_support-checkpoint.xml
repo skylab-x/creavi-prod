@@ -1,34 +1,32 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="creavi_products.list">
-      <field name="name">creavi_products list</field>
-      <field name="model">creavi_products.creavi_products</field>
+    <record model="ir.ui.view" id="creavi_products.list_support">
+      <field name="name">creavi_support list</field>
+      <field name="model">creavi_support</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="price"/>
         </tree>
       </field>
     </record>
--->
+
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="creavi_products.action_window">
-      <field name="name">creavi_products window</field>
-      <field name="res_model">creavi_products.creavi_products</field>
-      <field name="view_mode">tree,form</field>
+
+    <record model="ir.actions.act_window" id="creavi_products.action_window_support">
+      <field name="name">creavi_support window</field>
+      <field name="res_model">creavi_support</field>
+      <field name="view_mode">tree</field>
     </record>
--->
+
 
     <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="creavi_products.action_server">
-      <field name="name">creavi_products server</field>
-      <field name="model_id" ref="model_creavi_products_creavi_products"/>
+
+    <!--<record model="ir.actions.server" id="creavi_products.action_server_support">
+      <field name="name">creavi_support server</field>
+      <field name="model_id" ref="model_creavi_products_creavi_support"/>
       <field name="state">code</field>
       <field name="code">
         action = {
@@ -37,13 +35,11 @@
           "res_model": model._name,
         }
       </field>
-    </record>
--->
+    </record>-->
+
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="creavi_products" id="creavi_products.menu_root"/>
--->
+        <menuitem id="Support" name="Supports" action="creavi_products.list_support"/>
     <!-- menu categories -->
 <!--
     <menuitem name="Menu 1" id="creavi_products.menu_1" parent="creavi_products.menu_root"/>
