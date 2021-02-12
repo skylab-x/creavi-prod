@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_creavi_products_creavi_products,creavi_products.creavi_products,model_creavi_products_creavi_products,base.group_user,1,1,1,1
+access_creavi_accessoire,creavi_accessoire,model_creavi_accessoire,base.group_user,1,1,1,1
+access_creavi_machine,creavi_machine,model_creavi_machine,base.group_user,1,1,1,1
+access_creavi_support,creavi_support,model_creavi_support,base.group_user,1,1,1,1

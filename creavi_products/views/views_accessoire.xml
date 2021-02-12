@@ -20,28 +20,28 @@
     <record model="ir.actions.act_window" id="creavi_products.action_window_accessoire">
       <field name="name">creavi_accessoire window</field>
       <field name="res_model">creavi_accessoire</field>
-      <field name="view_mode">tree</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
 
     <!-- server action to the one above -->
 
-    <!--<record model="ir.actions.server" id="creavi_products.action_server_accessoire">
+    <record model="ir.actions.server" id="creavi_products.action_server_accessoire">
       <field name="name">creavi_accessoire server</field>
-      <field name="model_id" ref="model_creavi_products_creavi_accessoire"/>
+      <field name="model_id" ref="model_creavi_accessoire"/>
       <field name="state">code</field>
       <field name="code">
         action = {
           "type": "ir.actions.act_window",
           "view_mode": "tree,form",
-          "res_model": model._name,
+          "res_model": creavi_accessoire,
         }
       </field>
-    </record>-->
+    </record>
 
 
     <!-- Top menu item -->
-        <menuitem id="Accessoire" name="Accessoires" action="creavi_products.list_accessoire"/>
+        <menuitem id="Accessoire" name="Accessoires" action="creavi_products.action_window_accessoire"/>
     <!-- menu categories -->
 <!--
     <menuitem name="Menu 1" id="creavi_products.menu_1" parent="creavi_products.menu_root"/>

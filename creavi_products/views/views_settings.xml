@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+            <div class="app_settings_block" data-string="Créavi" string="Créavi" data-key="creavi_products">
+                <h2>Paramètres Créavi</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="o_setting_left_pane">
+                        <label for="marge_min" string="Marge minimum à ne pas franchir (%)"/>
+                        <field name="marge_min"/>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="o_setting_left_pane">
+                        <label for="marge_std" string="Marge standard appliqué par défaut (%)"/>
+                        <field name="marge_std"/>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="o_setting_left_pane">
+                        <label for="ink_m2" string="Consommation d'encre au m2"/>
+                        <field name="ink_m2"/>
+                    </div>
+                </div>
+            </div>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

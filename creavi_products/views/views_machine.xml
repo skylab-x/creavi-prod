@@ -7,12 +7,13 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="type"/>
           <field name="cadence"/>
           <field name="hour_cost"/>
         </tree>
       </field>
     </record>
+
+    
 
 
     <!-- actions opening views on models -->
@@ -20,7 +21,7 @@
     <record model="ir.actions.act_window" id="creavi_products.action_window_machines">
       <field name="name">creavi_machines window</field>
       <field name="res_model">creavi_machine</field>
-      <field name="view_mode">tree</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
 
@@ -38,10 +39,8 @@
         }
       </field>
     </record>-->
-
-
     <!-- Top menu item -->
-    <menuitem id="Machine" name="machines" action="creavi_products.list_machines"/>
+    <menuitem id="Machine" name="Machines" action="creavi_products.action_window_machines"/>
     <!-- menu categories -->
 <!--
     <menuitem name="Menu 1" id="creavi_products.menu_1" parent="creavi_products.menu_root"/>

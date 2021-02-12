@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+   <record model="ir.ui.view" id="sale_order_view_inherit">
+        <field name="name">sale.order.view.inherit_machine</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='qty_to_invoice']" position="after">
+            <field name="width"/>
+            <field name="height"/>
+            <field name="support_id"/>
+            <field name="machine_id"/>
+            <field name="mode_impression"/>
+            <field name="taux_marge"/>
+            <field name="theorical_cost"/>
+            <field name="selling_price_ht"/>
+            <field name="accessories" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//page[@name='order_lines']/field/tree/control/create[@name='add_section_control']" position="replace">
+        <create name="add_section_control" string="Ajouter un élément" context="{'default_display_type': 'line_section'}"/>
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_total']" position="after">
+            <button class="fa fa-clone" name="dup_line" aria-label="Cloner" type="object"/>
+        </xpath>
+        <xpath expr="//div[@name='invoice_lines']" position="before">
+          <field name="qty_to_invoice" widget="section_and_note_text" optional="show"/>
+        </xpath>
+        <xpath expr="//notebook/page/field[@name='order_line']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="mode">tree,kanban,form</attribute>
+        </xpath>
+        <xpath expr="//form/field[@name='company_id']" position="after">
+          <notebook>
+            <page string='Informations générales'>
+            <form>
+                <group class="col-md-6">
+                  <label for="product_uom_qty"/>
+                  <div name="lead">
+                    <field name="product_uom_qty"/>
+                  </div>
+
+                  <br/><br/>
+                  <b>Dimensions : </b><br/>
+                  <label for="width"/>
+                  <div name="lead">
+                    <field name="width"/>
+                  </div>
+                  <label for="height"/>
+                  <div name="lead">
+                    <field name="height"/>
+                  </div>
+                </group>
+                <group class="col-md-6">
+                  <b>Impression : </b><br/>
+                  <label for="mode_impression"/>
+                  <div name="lead">
+                    <field name="mode_impression"/>
+                  </div>
+                </group>
+              </form>
+            
+
+            </page> 
+            <page string='Matière'>
+            <form>
+                <group class="col-md-6">
+                  <label for="support_id"/>
+                  <div name="lead">
+                    <field name="support_id"/>
+                  </div>
+
+                  <p><b>Format:</b></p>
+                  <div name="lead">
+                    <field name="width_support"/> x <field name="height_support"/>
+                  </div>
+                
+                </group>
+                <group class="col-md-6">
+                  <label for="prix_support"/>
+                  <div name="lead">
+                    <field name="prix_support"/>
+                  </div>
+                  
+                </group>
+              </form>
+            </page> 
+            <page string='Machine'>
+              <form>
+                <group class="col-md-3">
+                  <label for="machine_id"/>
+                  <div name="lead">
+                    <field name="machine_id"/>
+                  </div>
+                  <label for="cadence_machine"/>
+                  <div name="lead">
+                    <field name="cadence_machine"/>
+                  </div>
+                  <label for="hour_cost_machine"/>
+                  <div name="lead">
+                    <field name="hour_cost_machine"/>
+                  </div>
+                </group>
+                <group class="col-md-9">
+                  <field name="list_machines"/>
+                </group>
+              </form>
+            </page> 
+            <page string='Accessoires'>
+            <tree string="Accessoires" editable="bottom">
+              <field name="accessories"/>
+              <control>
+                <create name="add_product_control" string="Ajouter un accessoire"/>
+              </control>
+              </tree>
+            </page> 
+            <page string='Façonnage'>
+            
+            </page> 
+            <page string='Synthèse'>
+            
+            </page> 
+          </notebook>
+        </xpath>
+        </field>
+    </record>
+    
+  </data>
+</odoo>
